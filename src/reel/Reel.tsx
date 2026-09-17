@@ -9,6 +9,7 @@ import "./fonts";
 import { brand } from "./theme";
 import { HOOK_SOURCE_FRAMES, src, starts, takeLength, takes } from "./timeline";
 import { HookPlate } from "./components/HookPlate";
+import { Seam } from "./components/Seam";
 import { musicEnvelope } from "./musicEnvelope";
 import { Scrim } from "./components/Scrim";
 import { Closing, Hook, Network, Objective, Vision } from "./sections/Sections";
@@ -40,7 +41,9 @@ export const Reel: React.FC = () => {
             {/* Section 1 plays the stand footage with her voice over it;
                 the rest show her on camera. */}
             {i === 0 ? (
-              <HookPlate playbackRate={HOOK_SOURCE_FRAMES / length} />
+              <Seam length={length} openCold>
+                <HookPlate playbackRate={HOOK_SOURCE_FRAMES / length} />
+              </Seam>
             ) : null}
             {/* The speaking spans of this take, butted together. The cuts are
                 hard: same framing throughout, so a dissolve would only smear

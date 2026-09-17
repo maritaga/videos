@@ -12,7 +12,13 @@ import { EndCard } from "../components/EndCard";
 const Cuts: React.FC<{ of: keyof typeof cutaways }> = ({ of }) => (
   <>
     {cutaways[of].map((cut, i) => (
-      <Cutaway key={i} file={cut.file} start={cut.at} frames={cut.frames} />
+      <Cutaway
+        key={i}
+        file={cut.file}
+        start={cut.at}
+        frames={cut.frames}
+        dim={cut.dim}
+      />
     ))}
   </>
 );
@@ -108,18 +114,19 @@ export const Network: React.FC = () => (
 /** 19.0–25.3s — the objective, one verb at a time. */
 export const Objective: React.FC = () => (
   <AbsoluteFill>
+    <Cuts of="objective" />
     <WordStack
       start={54}
       beat={42}
       top={238}
       size={100}
+      tone="paper"
       items={[
         { text: "NARRAR.", colour: brand.cyan },
         { text: "COMPRENDER.", colour: brand.gold },
         { text: "PROTEGER.", colour: brand.green },
       ]}
     />
-    <Cuts of="objective" />
   </AbsoluteFill>
 );
 

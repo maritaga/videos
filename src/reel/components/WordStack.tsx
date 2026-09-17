@@ -13,7 +13,9 @@ export const WordStack: React.FC<{
   beat: number;
   top: number;
   size?: number;
-}> = ({ items, start, beat, top, size = 104 }) => {
+  /** Ink on the wall, or white over darkened photographs. */
+  tone?: "ink" | "paper";
+}> = ({ items, start, beat, top, size = 104, tone = "ink" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -68,8 +70,10 @@ export const WordStack: React.FC<{
                 fontWeight: 900,
                 fontSize: size,
                 letterSpacing: "-0.025em",
-                color: brand.ink,
+                color: tone === "paper" ? brand.paper : brand.ink,
                 lineHeight: 1,
+                textShadow:
+                  tone === "paper" ? "0 3px 26px rgba(0,0,0,0.6)" : undefined,
               }}
             >
               {item.text}

@@ -22,7 +22,9 @@ export const Cutaway: React.FC<{
   frames: number;
   /** Slow push in, so a still photograph still has motion. */
   zoom?: number;
-}> = ({ file, start, frames, zoom = 1.06 }) => {
+  /** Darken the top of the photo so copy can sit over it. */
+  dim?: boolean;
+}> = ({ file, start, frames, zoom = 1.06, dim = false }) => {
   const frame = useCurrentFrame();
   const local = frame - start;
   const FADE = 5;
@@ -69,6 +71,14 @@ export const Cutaway: React.FC<{
             }}
           />
         </AbsoluteFill>
+        {dim ? (
+          <AbsoluteFill
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(6,14,12,0.80) 0%, rgba(6,14,12,0.52) 34%, rgba(6,14,12,0.10) 62%, rgba(6,14,12,0.30) 100%)",
+            }}
+          />
+        ) : null}
       </AbsoluteFill>
     </Sequence>
   );

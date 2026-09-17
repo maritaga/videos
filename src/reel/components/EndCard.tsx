@@ -95,7 +95,7 @@ export const EndCard: React.FC<{ start: number }> = ({ start }) => {
           {LOGO ? (
             <Img
               src={staticFile(`images/${LOGO}`)}
-              style={{ width: 620, height: "auto" }}
+              style={{ width: 560, height: "auto" }}
             />
           ) : (
             <TextLockup progress={rise} />
