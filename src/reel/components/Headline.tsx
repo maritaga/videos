@@ -20,6 +20,8 @@ export const Headline: React.FC<{
   size?: number;
   top?: number;
   lineHeight?: number;
+  /** Ink on the bright wall, or white over darkened footage. */
+  tone?: "ink" | "paper";
 }> = ({
   words,
   start = 0,
@@ -27,7 +29,9 @@ export const Headline: React.FC<{
   size = 92,
   top = layout.textTop,
   lineHeight = 1.06,
+  tone = "ink",
 }) => {
+  const base = tone === "paper" ? brand.paper : brand.ink;
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -62,13 +66,17 @@ export const Headline: React.FC<{
               fontSize: size,
               lineHeight,
               letterSpacing: "-0.02em",
-              color: word.color ?? (word.highlight ? brand.paper : brand.ink),
+              color: word.color ?? (word.highlight ? brand.paper : base),
               background: word.highlight,
               padding: word.highlight ? `0.04em 0.18em 0.1em` : undefined,
               borderRadius: word.highlight ? 14 : undefined,
               opacity: enter,
               transform: `translateY(${y}px)`,
               display: "inline-block",
+              textShadow:
+                tone === "paper" && !word.highlight
+                  ? "0 3px 26px rgba(0,0,0,0.55)"
+                  : undefined,
             }}
           >
             {word.text}

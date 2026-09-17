@@ -3,43 +3,36 @@ import { staticFile } from "remotion";
 export const FPS = 30;
 
 /**
- * Each take is one section of the script. Two of them (and the third, briefly)
- * carry a pause of a second or more mid-sentence, which is dead weight in a
- * reel, so every take is cut into the spans where she is actually speaking —
- * frame ranges measured from the speech envelope of the source audio, with
- * ~0.14s of breathing room kept either side. Dropping the pauses takes the
- * piece from 33.5s to 31.1s without losing a word.
+ * One take per section of the script, cut to the spans where she is actually
+ * speaking — frame ranges measured from the speech envelope of the source
+ * audio, with ~0.14s of breathing room either side. These takes are clean;
+ * only section 2 carries a pause worth removing.
  *
- * `gain` evens out the level between takes; only take 3 was meaningfully quiet.
+ * `gain` evens out the level between takes, from their speech-only RMS.
  */
 export const takes = [
+  { id: "seccion1", gain: 1.17, segments: [{ from: 6, frames: 132 }] },
   {
-    id: "clip1",
-    gain: 0.97,
+    id: "seccion2",
+    gain: 1.06,
     segments: [
-      { from: 0, frames: 115 },
-      { from: 145, frames: 18 },
+      { from: 0, frames: 65 },
+      { from: 83, frames: 195 },
     ],
   },
-  { id: "clip2", gain: 0.99, segments: [{ from: 1, frames: 280 }] },
-  {
-    id: "clip3",
-    gain: 1.23,
-    segments: [
-      { from: 0, frames: 139 },
-      { from: 147, frames: 33 },
-    ],
-  },
-  { id: "clip4", gain: 0.93, segments: [{ from: 0, frames: 202 }] },
-  {
-    id: "clip5",
-    gain: 0.93,
-    segments: [
-      { from: 0, frames: 122 },
-      { from: 154, frames: 25 },
-    ],
-  },
+  { id: "seccion3", gain: 0.93, segments: [{ from: 1, frames: 175 }] },
+  { id: "seccion4", gain: 0.89, segments: [{ from: 10, frames: 189 }] },
+  { id: "seccion5", gain: 0.99, segments: [{ from: 8, frames: 150 }] },
 ] as const;
+
+/**
+ * The hook plays the stand footage instead of the presenter, with her voice
+ * over it. The clip is 115 frames and the line runs 132, so it is slowed
+ * just under 13% to cover — not enough to read as slow motion.
+ */
+export const HOOK_CLIP = "hook.mov";
+export const HOOK_SOURCE_FRAMES = 115;
+export const HOOK_VOICE = "seccion1-voz.wav";
 
 export const src = (id: string) => staticFile(`${id}.mp4`);
 

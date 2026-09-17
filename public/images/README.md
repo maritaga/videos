@@ -1,10 +1,10 @@
 # Project imagery
 
-Drop photographs here and list the filenames in `src/reel/media.ts`.
+Drop photographs here and list them in `src/reel/media.ts` under the section
+they belong to, with `at` (frame within that section) and `frames` (how long
+they stay up).
 
-- `logo.png` — the La Ciencia de las Letras mark. Set `LOGO = "logo.png"` in
-  `media.ts` and the end card swaps the text lockup for the real logo.
-  A transparent PNG works best; a white background also works, since the end
-  card is white.
-- Photographs are cropped to fill their slot, so anything roughly portrait
-  (3:4) sits best in the hook, vision and closing slots.
+- The logo goes here too. Name it in `media.ts` as `LOGO` and the end card
+  swaps its text lockup for the real mark.
+- Photographs are shown full width over a blurred copy of themselves, so
+  landscape shots work fine — nothing gets cropped to a sliver.

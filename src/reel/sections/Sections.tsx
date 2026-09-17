@@ -1,20 +1,29 @@
 import { AbsoluteFill } from "remotion";
 import { brand } from "../theme";
-import { photos } from "../media";
+import { cutaways } from "../media";
 import { Headline } from "../components/Headline";
 import { WorldSpread } from "../components/WorldSpread";
 import { NetworkGraph } from "../components/NetworkGraph";
 import { WordStack } from "../components/WordStack";
 import { LowerThird } from "../components/LowerThird";
-import { PhotoCard } from "../components/PhotoCard";
+import { Cutaway } from "../components/Cutaway";
 import { EndCard } from "../components/EndCard";
 
-/** 0–5.5s — the hook. Nothing competes with the question. */
+const Cuts: React.FC<{ of: keyof typeof cutaways }> = ({ of }) => (
+  <>
+    {cutaways[of].map((cut, i) => (
+      <Cutaway key={i} file={cut.file} start={cut.at} frames={cut.frames} />
+    ))}
+  </>
+);
+
+/** 0–4.4s — the hook, over the stand footage. White copy on a darkened plate. */
 export const Hook: React.FC = () => (
   <AbsoluteFill>
     <Headline
       start={6}
       size={94}
+      tone="paper"
       words={[
         { text: "¿Y" },
         { text: "SI" },
@@ -25,37 +34,10 @@ export const Hook: React.FC = () => (
         { text: "EDUCACIÓN?", highlight: brand.green },
       ]}
     />
-    <PhotoCard
-      file={photos.hook[0]}
-      start={40}
-      x={70}
-      y={760}
-      w={250}
-      h={330}
-      rotate={-4}
-    />
-    <PhotoCard
-      file={photos.hook[1]}
-      start={52}
-      x={760}
-      y={700}
-      w={250}
-      h={330}
-      rotate={5}
-    />
-    <PhotoCard
-      file={photos.hook[2]}
-      start={64}
-      x={410}
-      y={1180}
-      w={260}
-      h={200}
-      rotate={-2}
-    />
   </AbsoluteFill>
 );
 
-/** 5.5–15s — the vision, and the spread from one community to many. */
+/** 4.4–13.1s — the vision, and the spread from one community to many. */
 export const Vision: React.FC = () => (
   <AbsoluteFill>
     <Headline
@@ -79,33 +61,16 @@ export const Vision: React.FC = () => (
     >
       <WorldSpread start={62} width={1000} />
     </div>
-    <PhotoCard
-      file={photos.vision[0]}
-      start={120}
-      x={62}
-      y={1140}
-      w={250}
-      h={320}
-      rotate={-5}
-    />
-    <PhotoCard
-      file={photos.vision[1]}
-      start={134}
-      x={770}
-      y={1120}
-      w={250}
-      h={320}
-      rotate={4}
-    />
     <LowerThird
-      start={150}
+      start={120}
       bottom={236}
       chips={[{ text: "DE LO LOCAL A LO GLOBAL 🌎", colour: brand.ink }]}
     />
+    <Cuts of="vision" />
   </AbsoluteFill>
 );
 
-/** 15–21s — the international network wiring itself together. */
+/** 13.1–19.0s — the international network wiring itself together. */
 export const Network: React.FC = () => (
   <AbsoluteFill>
     <Headline
@@ -136,15 +101,16 @@ export const Network: React.FC = () => (
         { text: "🌱 COMUNIDADES", colour: brand.green },
       ]}
     />
+    <Cuts of="network" />
   </AbsoluteFill>
 );
 
-/** 21–28s — the objective, one verb at a time. */
+/** 19.0–25.3s — the objective, one verb at a time. */
 export const Objective: React.FC = () => (
   <AbsoluteFill>
     <WordStack
-      start={60}
-      beat={45}
+      start={54}
+      beat={42}
       top={238}
       size={100}
       items={[
@@ -153,37 +119,11 @@ export const Objective: React.FC = () => (
         { text: "PROTEGER.", colour: brand.green },
       ]}
     />
-    <PhotoCard
-      file={photos.objective[0]}
-      start={56}
-      x={66}
-      y={1150}
-      w={230}
-      h={300}
-      rotate={-4}
-    />
-    <PhotoCard
-      file={photos.objective[1]}
-      start={96}
-      x={424}
-      y={1190}
-      w={230}
-      h={300}
-      rotate={2}
-    />
-    <PhotoCard
-      file={photos.objective[2]}
-      start={136}
-      x={782}
-      y={1150}
-      w={230}
-      h={300}
-      rotate={5}
-    />
+    <Cuts of="objective" />
   </AbsoluteFill>
 );
 
-/** 28–34s — the close, handing off to the end card. */
+/** 25.3–30.2s — the close, handing off to the end card. */
 export const Closing: React.FC<{ endCardAt: number }> = ({ endCardAt }) => (
   <AbsoluteFill>
     <Headline
@@ -196,33 +136,7 @@ export const Closing: React.FC<{ endCardAt: number }> = ({ endCardAt }) => (
         { text: "JUNTOS", highlight: brand.orange },
       ]}
     />
-    <PhotoCard
-      file={photos.closing[0]}
-      start={30}
-      x={64}
-      y={1120}
-      w={240}
-      h={310}
-      rotate={-5}
-    />
-    <PhotoCard
-      file={photos.closing[1]}
-      start={42}
-      x={420}
-      y={1160}
-      w={240}
-      h={310}
-      rotate={3}
-    />
-    <PhotoCard
-      file={photos.closing[2]}
-      start={54}
-      x={776}
-      y={1120}
-      w={240}
-      h={310}
-      rotate={-3}
-    />
+    <Cuts of="closing" />
     <EndCard start={endCardAt} />
   </AbsoluteFill>
 );
