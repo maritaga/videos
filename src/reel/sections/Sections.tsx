@@ -18,6 +18,7 @@ const Cuts: React.FC<{ of: keyof typeof cutaways }> = ({ of }) => (
         start={cut.at}
         frames={cut.frames}
         dim={cut.dim}
+        fade={cut.fade}
       />
     ))}
   </>

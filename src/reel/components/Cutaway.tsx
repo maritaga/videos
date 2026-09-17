@@ -24,10 +24,12 @@ export const Cutaway: React.FC<{
   zoom?: number;
   /** Darken the top of the photo so copy can sit over it. */
   dim?: boolean;
-}> = ({ file, start, frames, zoom = 1.06, dim = false }) => {
+  /** Frames to fade at each end. Longer reads as a gentler change. */
+  fade?: number;
+}> = ({ file, start, frames, zoom = 1.06, dim = false, fade = 5 }) => {
   const frame = useCurrentFrame();
   const local = frame - start;
-  const FADE = 5;
+  const FADE = fade;
 
   // Fade at both ends so the cut in and out is soft against the talking head.
   const opacity = interpolate(

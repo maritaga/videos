@@ -10,6 +10,8 @@ export type Cut = {
   frames: number;
   /** Darken the photo so copy can sit over it. */
   dim?: boolean;
+  /** Frames to fade at each end. Longer reads as a gentler change. */
+  fade?: number;
 };
 
 export const cutaways: Record<string, Cut[]> = {
@@ -37,10 +39,16 @@ export const cutaways: Record<string, Cut[]> = {
     { file: "aula-manglar.jpg", at: 140, frames: 49, dim: true },
   ],
 
-  /** The closing montage, after the last line of copy has been read. */
+  /**
+   * The closing montage, after the last line of copy has been read. Held
+   * around a second and a half each with a long dissolve — at the second
+   * they ran before, the changes came at you. The second one carries on
+   * under the end card as it fades up, so the reel resolves into the logo
+   * rather than cutting to it.
+   */
   closing: [
-    { file: "feria-mascota.jpg", at: 48, frames: 30 },
-    { file: "presentacion-sala.jpg", at: 75, frames: 26 },
+    { file: "feria-mascota.jpg", at: 32, frames: 48, fade: 8 },
+    { file: "presentacion-sala.jpg", at: 74, frames: 50, fade: 8 },
   ],
 };
 

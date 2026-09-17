@@ -76,7 +76,7 @@ export const Reel: React.FC = () => {
                   );
                 })}
             <Scrim variant={i === 0 ? "footage" : "wall"} />
-            {Section ? <Section /> : <Closing endCardAt={length - 52} />}
+            {Section ? <Section /> : <Closing endCardAt={length - 46} />}
           </Sequence>
         );
       })}
