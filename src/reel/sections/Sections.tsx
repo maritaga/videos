@@ -1,28 +1,11 @@
 import { AbsoluteFill } from "remotion";
 import { brand } from "../theme";
-import { cutaways } from "../media";
 import { Headline } from "../components/Headline";
 import { WorldSpread } from "../components/WorldSpread";
 import { NetworkGraph } from "../components/NetworkGraph";
 import { WordStack } from "../components/WordStack";
 import { LowerThird } from "../components/LowerThird";
-import { Cutaway } from "../components/Cutaway";
 import { EndCard } from "../components/EndCard";
-
-const Cuts: React.FC<{ of: keyof typeof cutaways }> = ({ of }) => (
-  <>
-    {cutaways[of].map((cut, i) => (
-      <Cutaway
-        key={i}
-        file={cut.file}
-        start={cut.at}
-        frames={cut.frames}
-        dim={cut.dim}
-        fade={cut.fade}
-      />
-    ))}
-  </>
-);
 
 /** 0–4.4s — the hook, over the stand footage. White copy on a darkened plate. */
 export const Hook: React.FC = () => (
@@ -73,7 +56,6 @@ export const Vision: React.FC = () => (
       bottom={236}
       chips={[{ text: "DE LO LOCAL A LO GLOBAL 🌎", colour: brand.ink }]}
     />
-    <Cuts of="vision" />
   </AbsoluteFill>
 );
 
@@ -81,7 +63,7 @@ export const Vision: React.FC = () => (
 export const Network: React.FC = () => (
   <AbsoluteFill>
     <Headline
-      start={4}
+      start={16}
       size={64}
       words={[{ text: "UNA" }, { text: "RED" }, { text: "INTERNACIONAL" }]}
     />
@@ -108,14 +90,12 @@ export const Network: React.FC = () => (
         { text: "🌱 COMUNIDADES", colour: brand.green },
       ]}
     />
-    <Cuts of="network" />
   </AbsoluteFill>
 );
 
 /** 19.0–25.3s — the objective, one verb at a time. */
 export const Objective: React.FC = () => (
   <AbsoluteFill>
-    <Cuts of="objective" />
     <WordStack
       start={54}
       beat={42}
@@ -137,6 +117,7 @@ export const Closing: React.FC<{ endCardAt: number }> = ({ endCardAt }) => (
     <Headline
       start={6}
       size={78}
+      tone="paper"
       words={[
         { text: "APRENDER" },
         { text: "A" },
@@ -144,7 +125,6 @@ export const Closing: React.FC<{ endCardAt: number }> = ({ endCardAt }) => (
         { text: "JUNTOS", highlight: brand.orange },
       ]}
     />
-    <Cuts of="closing" />
     <EndCard start={endCardAt} />
   </AbsoluteFill>
 );
