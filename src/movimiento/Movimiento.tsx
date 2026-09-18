@@ -19,10 +19,9 @@ import {
   CloseLook,
   CloseName,
   CloseProtect,
-  HookBeat,
   HookBook,
-  HookPayoff,
   HookScience,
+  HookWhale,
   How,
   Meaning,
   Presentation,
@@ -30,10 +29,10 @@ import {
 
 /** One copy layer per take, in running order; null where the take runs clean. */
 const copy = [
-  HookBeat,
+  null,
+  HookWhale,
   HookBook,
   HookScience,
-  HookPayoff,
   Presentation,
   How,
   Meaning,
@@ -46,7 +45,7 @@ const copy = [
 ] as const;
 
 /** The logo lands here, and the music has already gone by this point. */
-const SIGNOFF = 975;
+const SIGNOFF = 968;
 
 /**
  * Same three-layer build as the other two reels: footage, then photographs,
@@ -130,7 +129,7 @@ export const Movimiento: React.FC = () => {
         );
       })}
 
-      <Signoff start={SIGNOFF} frames={1057 - SIGNOFF} />
+      <Signoff start={SIGNOFF} frames={1050 - SIGNOFF} />
     </AbsoluteFill>
   );
 };

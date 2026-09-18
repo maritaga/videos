@@ -1,4 +1,4 @@
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { brand } from "../../shared/theme";
 import { Headline } from "../../shared/components/Headline";
 import { WordCycle } from "../../shared/components/WordCycle";
@@ -12,10 +12,15 @@ import { Pillars } from "../components/Pillars";
  */
 const TOP = 196;
 
-/** 0–4.4s — whale, book, microscope, one per cut. */
-export const HookBeat: React.FC = () => (
+/**
+ * The hook. Take 1 is "¿Qué tienen que ver" and carries nothing — it is under
+ * a second, and a symbol there would be gone before it registered. The three
+ * nouns each get their own cut with the prop in shot, so the symbols go on
+ * takes 2, 3 and 4.
+ */
+export const HookWhale: React.FC = () => (
   <AbsoluteFill>
-    <EmojiBeat emoji="🐋" caption="UNA BALLENA" start={2} top={TOP} />
+    <EmojiBeat emoji="🐋" caption="UNA BALLENA" start={1} top={TOP} />
   </AbsoluteFill>
 );
 
@@ -31,42 +36,53 @@ export const HookScience: React.FC = () => (
   </AbsoluteFill>
 );
 
-export const HookPayoff: React.FC = () => (
-  <AbsoluteFill>
-    <Headline
-      start={1}
-      stagger={3}
-      size={78}
-      top={TOP}
-      tone="paper"
-      words={[
-        { text: "MÁS" },
-        { text: "DE" },
-        { text: "LO" },
-        { text: "QUE" },
-        { text: "IMAGINAS.", highlight: brand.green },
-      ]}
-    />
-  </AbsoluteFill>
-);
+/**
+ * 4.2–11.7s — the answer to the question, then what the project is.
+ *
+ * "Más de lo que imaginas" is not spoken; the script has it as on-screen text.
+ * It belongs at the head of this take, where it answers the question the hook
+ * just asked and hands over to the three words.
+ */
+export const Presentation: React.FC = () => {
+  const frame = useCurrentFrame();
+  const payoff = interpolate(frame, [46, 60], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
-/** 4.4–12.0s — what the project is. */
-export const Presentation: React.FC = () => (
-  <AbsoluteFill>
-    <WordCycle
-      start={26}
-      every={62}
-      top={TOP}
-      size={86}
-      tone="paper"
-      beats={[
-        { text: "CIENCIA", colour: brand.blue },
-        { text: "HISTORIAS", colour: brand.crimson },
-        { text: "EXPERIENCIAS", colour: brand.gold },
-      ]}
-    />
-  </AbsoluteFill>
-);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ opacity: payoff }}>
+        <Headline
+          start={1}
+          stagger={3}
+          size={78}
+          top={TOP}
+          tone="paper"
+          words={[
+            { text: "MÁS" },
+            { text: "DE" },
+            { text: "LO" },
+            { text: "QUE" },
+            { text: "IMAGINAS.", highlight: brand.green },
+          ]}
+        />
+      </AbsoluteFill>
+      <WordCycle
+        start={64}
+        every={52}
+        top={TOP}
+        size={86}
+        tone="paper"
+        beats={[
+          { text: "CIENCIA", colour: brand.blue },
+          { text: "HISTORIAS", colour: brand.crimson },
+          { text: "EXPERIENCIAS", colour: brand.gold },
+        ]}
+      />
+    </AbsoluteFill>
+  );
+};
 
 /** 12.0–20.1s — how it does it. Four pillars arrive around him. */
 export const How: React.FC = () => (

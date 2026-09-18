@@ -17,13 +17,10 @@ export const FPS = 30;
 export const takes = [
   { id: "n1", segments: [{ from: 0, frames: 29 }] },
   { id: "n2", segments: [{ from: 0, frames: 28 }] },
-  {
-    id: "n3",
-    segments: [
-      { from: 0, frames: 20 },
-      { from: 34, frames: 18 },
-    ],
-  },
+  // Take 3 is cut at frame 31: the camera slips at 33 and is pointing at the
+  // ceiling by 36. The speech trim had kept that tail because the knock reads
+  // as sound, which is exactly the shot he asked to lose.
+  { id: "n3", segments: [{ from: 0, frames: 31 }] },
   {
     id: "n4",
     segments: [
@@ -71,9 +68,12 @@ export const SPOKEN = takes.reduce((sum, t) => sum + takeLength(t), 0);
 export const TOTAL = SPOKEN + TAIL;
 
 /**
- * The script's five beats, as index ranges into `takes`. The numbering of the
- * rushes already follows the script, and the cumulative run of each group
- * lands within a second of the timings in it.
+ * The script's five beats, as index ranges into `takes`.
+ *
+ * The hook splits the question across four takes rather than three: take 1 is
+ * "¿Qué tienen que ver", and the three nouns each get their own cut, with the
+ * prop in shot — the whale, the book, the thermometer. The symbols have to
+ * land on 2, 3 and 4, not 1, 2 and 3.
  */
 export const beats = {
   hook: [0, 3],
