@@ -127,12 +127,9 @@ export const CloseIntro: React.FC = () => (
       size={62}
       top={TOP}
       tone="paper"
-      words={[
-        { text: "MIRAR," },
-        { text: "NOMBRAR" },
-        { text: "Y" },
-        { text: "PROTEGER" },
-      ]}
+      // The three verbs land on their own cuts straight after this, so the
+      // line only sets them up instead of listing them twice.
+      words={[{ text: "ENSEÑA" }, { text: "A..." }]}
     />
   </AbsoluteFill>
 );
