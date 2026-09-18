@@ -8,8 +8,11 @@
  * sit on a join are given a long dissolve instead.
  *
  * Section boundaries, for reference:
- *   hook 0 · vision 132 (internal cut at 197) · network 392
- *   objective 567 · closing 756 · end card 860
+ *   hook 0 · vision 132 · network 378 · objective 553 · closing 742
+ *   verbs land at 607, 649, 691 · end card 846 · ends 892
+ *
+ * These are absolute frames, so retiming any take moves the joins and these
+ * have to move with them.
  */
 export type Cut = {
   file: string;
@@ -27,17 +30,17 @@ const FADE = 14;
 
 export const cutaways: Cut[] = [
   // "escuelas y comunidades educativas", once the map has finished spreading.
-  { file: "sesion-arranque.jpg", at: 286, frames: 72 },
+  { file: "sesion-arranque.jpg", at: 286, frames: 66 },
   // Straddles the vision → network join.
-  { file: "presentacion-vertical.jpg", at: 348, frames: 56 },
+  { file: "presentacion-vertical.jpg", at: 346, frames: 60 },
   // Straddles the network → objective join.
-  { file: "grupo.jpg", at: 505, frames: 76 },
+  { file: "grupo.jpg", at: 491, frames: 76 },
   // One per verb. The last straddles the objective → closing join.
-  { file: "narrar-cuento.jpg", at: 596, frames: 74, dim: true },
-  { file: "presentacion-sala.jpg", at: 658, frames: 66, dim: true },
-  { file: "aula-manglar.jpg", at: 700, frames: 90, dim: true },
+  { file: "narrar-cuento.jpg", at: 582, frames: 74, dim: true },
+  { file: "presentacion-sala.jpg", at: 644, frames: 66, dim: true },
+  { file: "aula-manglar.jpg", at: 686, frames: 90, dim: true },
   // Resolves into the end card as it fades up.
-  { file: "feria-mascota.jpg", at: 782, frames: 80, dim: true },
+  { file: "feria-mascota.jpg", at: 768, frames: 80, dim: true },
 ].map((cut) => ({ fade: FADE, ...cut }));
 
 /** The mark, shown on the end card in place of the text lockup. */

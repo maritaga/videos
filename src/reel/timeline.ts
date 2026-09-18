@@ -11,18 +11,11 @@ export const FPS = 30;
  * `gain` evens out the level between takes, from their speech-only RMS.
  */
 export const takes = [
-  { id: "seccion1", gain: 1.17, segments: [{ from: 6, frames: 132 }] },
-  {
-    id: "seccion2",
-    gain: 1.06,
-    segments: [
-      { from: 0, frames: 65 },
-      { from: 83, frames: 195 },
-    ],
-  },
-  { id: "seccion3", gain: 0.93, segments: [{ from: 1, frames: 175 }] },
-  { id: "seccion4", gain: 0.89, segments: [{ from: 10, frames: 189 }] },
-  { id: "seccion5", gain: 0.99, segments: [{ from: 8, frames: 150 }] },
+  { id: "seccion1", gain: 1.13, segments: [{ from: 6, frames: 132 }] },
+  { id: "seccion2", gain: 1.23, segments: [{ from: 22, frames: 246 }] },
+  { id: "seccion3", gain: 0.91, segments: [{ from: 1, frames: 175 }] },
+  { id: "seccion4", gain: 0.86, segments: [{ from: 10, frames: 189 }] },
+  { id: "seccion5", gain: 0.96, segments: [{ from: 8, frames: 150 }] },
 ] as const;
 
 /**
