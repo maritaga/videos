@@ -130,7 +130,7 @@ export const CtaCard: React.FC<{ start: number; frames: number }> = ({
               colour={brand.crimson}
               delay={18}
             />
-            <Detail text="16:00 HRS." colour={brand.blue} delay={26} />
+            <Detail text="16:00 – 17:30 HRS." colour={brand.blue} delay={26} />
             <Detail text="EVENTO VIRTUAL" colour={brand.green} delay={34} />
           </div>
 

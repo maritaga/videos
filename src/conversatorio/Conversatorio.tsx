@@ -13,6 +13,7 @@ import { Scrim } from "../shared/components/Scrim";
 import { Seam } from "../shared/components/Seam";
 import { EventCard } from "./components/EventCard";
 import { CtaCard } from "./components/CtaCard";
+import { Cutaway } from "../shared/components/Cutaway";
 import {
   Close,
   Conversation,
@@ -96,7 +97,20 @@ export const Conversatorio: React.FC = () => {
           the section heading has already been read by the time either lands.
           The event card also straddles the conversation → topics cut, so that
           join happens behind it rather than in the open. */}
-      <EventCard start={310} frames={134} />
+      <EventCard start={296} frames={90} />
+
+      {/* The official poster, straight after the title card and running across
+          the cut into the topics take. It carries the panellists, which the
+          script asks for and nothing else in hand could supply. No push-in:
+          it is already 9:16, so it fills the frame exactly, and zooming would
+          crop the names off its edges. */}
+      <Cutaway
+        file="poster-evento.jpg"
+        start={382}
+        frames={88}
+        fade={14}
+        zoom={1}
+      />
 
       {/* The QR runs to the very end, over the tail of silence. */}
       <CtaCard start={941} frames={132} />

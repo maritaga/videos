@@ -11,7 +11,12 @@ import {
 import { brand, FONT, plume } from "../../shared/theme";
 
 /**
- * The event's full name, which is far too long to sit over the presenter —
+ * The event's full name, wording taken from the official poster rather than
+ * the script: "al mundo", not "el mundo", and "palabra" singular. The
+ * registration URL on the poster reads vocesquesostienenalmundo, which
+ * settles it.
+ *
+ * It is far too long to sit over the presenter —
  * he fills more of the frame than the previous one, leaving only a shallow
  * band of wall. A card gives it room, and doubles as cover for the cut into
  * the next take.
@@ -93,7 +98,7 @@ export const EventCard: React.FC<{ start: number; frames: number }> = ({
             <br />
             que sostienen
             <br />
-            el mundo
+            al mundo
           </div>
 
           <div
@@ -108,7 +113,7 @@ export const EventCard: React.FC<{ start: number; frames: number }> = ({
               maxWidth: 820,
             }}
           >
-            Miradas, palabras y ciencia
+            Miradas, palabra y ciencia
             <br />
             ante la Agenda 2030
           </div>
