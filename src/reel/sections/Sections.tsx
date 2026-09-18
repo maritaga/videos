@@ -1,10 +1,10 @@
 import { AbsoluteFill } from "remotion";
-import { brand } from "../theme";
-import { Headline } from "../components/Headline";
+import { brand } from "../../shared/theme";
+import { Headline } from "../../shared/components/Headline";
 import { WorldSpread } from "../components/WorldSpread";
 import { NetworkGraph } from "../components/NetworkGraph";
-import { WordStack } from "../components/WordStack";
-import { LowerThird } from "../components/LowerThird";
+import { WordStack } from "../../shared/components/WordStack";
+import { LowerThird } from "../../shared/components/LowerThird";
 import { EndCard } from "../components/EndCard";
 
 /** 0–4.4s — the hook, over the stand footage. White copy on a darkened plate. */

@@ -5,15 +5,15 @@ import {
   Sequence,
   staticFile,
 } from "remotion";
-import "./fonts";
-import { brand } from "./theme";
+import "../shared/fonts";
+import { brand } from "../shared/theme";
 import { HOOK_SOURCE_FRAMES, src, starts, takeLength, takes } from "./timeline";
 import { cutaways } from "./media";
 import { musicEnvelope } from "./musicEnvelope";
-import { Scrim } from "./components/Scrim";
-import { Seam } from "./components/Seam";
+import { Scrim } from "../shared/components/Scrim";
+import { Seam } from "../shared/components/Seam";
 import { HookPlate } from "./components/HookPlate";
-import { Cutaway } from "./components/Cutaway";
+import { Cutaway } from "../shared/components/Cutaway";
 import { Closing, Hook, Network, Objective, Vision } from "./sections/Sections";
 
 /** Sections 1–4 take no props; the closing section also drives the end card. */

@@ -1,5 +1,5 @@
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { brand } from "../theme";
+import { brand } from "../../shared/theme";
 
 type Node = { x: number; y: number; r: number; colour: string };
 

@@ -7,7 +7,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { brand, FONT, plume } from "../theme";
+import { brand, FONT, plume } from "../../shared/theme";
 import { HANDLE, LOGO } from "../media";
 
 /** Stand-in lockup used until the real logo file is dropped into public/images. */

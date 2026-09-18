@@ -1,5 +1,5 @@
 import { interpolate, useCurrentFrame } from "remotion";
-import { brand, plume } from "../theme";
+import { brand, plume } from "../../shared/theme";
 
 /**
  * A coarse dot map of the world, 44 columns wide. Wide and short so it sits in
