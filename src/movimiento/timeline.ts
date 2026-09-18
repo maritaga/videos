@@ -17,11 +17,29 @@ export const FPS = 30;
 export const takes = [
   { id: "n1", segments: [{ from: 0, frames: 29 }] },
   { id: "n2", segments: [{ from: 0, frames: 28 }] },
-  { id: "n3", segments: [{ from: 0, frames: 20 }, { from: 34, frames: 18 }] },
-  { id: "n4", segments: [{ from: 16, frames: 30 }, { from: 64, frames: 7 }] },
+  {
+    id: "n3",
+    segments: [
+      { from: 0, frames: 20 },
+      { from: 34, frames: 18 },
+    ],
+  },
+  {
+    id: "n4",
+    segments: [
+      { from: 16, frames: 30 },
+      { from: 64, frames: 7 },
+    ],
+  },
   { id: "n5", segments: [{ from: 20, frames: 227 }] },
   { id: "n6", segments: [{ from: 20, frames: 245 }] },
-  { id: "n7", segments: [{ from: 8, frames: 89 }, { from: 105, frames: 88 }] },
+  {
+    id: "n7",
+    segments: [
+      { from: 8, frames: 89 },
+      { from: 105, frames: 88 },
+    ],
+  },
   { id: "n8", segments: [{ from: 0, frames: 73 }] },
   { id: "n9", segments: [{ from: 0, frames: 16 }] },
   { id: "n10", segments: [{ from: 10, frames: 24 }] },

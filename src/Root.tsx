@@ -1,3 +1,5 @@
+import { Movimiento } from "./movimiento/Movimiento";
+import { FPS as MFPS, TOTAL as MTOTAL } from "./movimiento/timeline";
 import { Conversatorio } from "./conversatorio/Conversatorio";
 import { FPS as CFPS, TOTAL as CTOTAL } from "./conversatorio/timeline";
 import { Reel } from "./reel/Reel";
@@ -39,6 +41,14 @@ export const RemotionRoot: React.FC = () => {
         component={Conversatorio}
         durationInFrames={CTOTAL}
         fps={CFPS}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Movimiento"
+        component={Movimiento}
+        durationInFrames={MTOTAL}
+        fps={MFPS}
         width={1080}
         height={1920}
       />

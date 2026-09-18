@@ -11,3 +11,7 @@ gratuito.
 **"Vibe Check" — Blue Deer Studio** (`public/musica-conv.mp3`)
 
 Para el reel del conversatorio "Voces que sostienen el mundo".
+
+**"Don't Yuck My Yum" — Blue Deer Studio** (`public/musica-mov.mp3`)
+
+Para el reel "¿Qué tienen que ver una ballena, un libro y la ciencia?".
