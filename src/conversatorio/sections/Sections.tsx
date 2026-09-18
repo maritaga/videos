@@ -3,7 +3,7 @@ import { brand } from "../../shared/theme";
 import { Headline } from "../../shared/components/Headline";
 import { WordStack } from "../../shared/components/WordStack";
 import { LowerThird } from "../../shared/components/LowerThird";
-import { WordCycle } from "../components/WordCycle";
+import { WordCycle } from "../../shared/components/WordCycle";
 
 /**
  * He fills more of the frame than the previous presenter, so the clear band of
